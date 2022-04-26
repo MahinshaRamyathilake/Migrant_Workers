@@ -555,3 +555,7 @@ C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\obj\
 C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\obj\Debug\net6.0\MigrationWorkersWeb.pdb
 C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\obj\Debug\net6.0\MigrationWorkersWeb.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\obj\Debug\net6.0\ref\MigrationWorkersWeb.dll
+C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ASUS\Desktop\Mahinsha\ASP.net\MigrationWorkers\MigrationWorkersWeb\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
