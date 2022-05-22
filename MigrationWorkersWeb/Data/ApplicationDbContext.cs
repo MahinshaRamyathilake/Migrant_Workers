@@ -22,5 +22,6 @@ namespace MigrationWorkersWeb.Data
         public DbSet<Agency_User> Agency_Users { get; set; }
         public DbSet<Agency_User_Email> Agency_User_Emails { get; set; }
         public DbSet<SLFB_User> SLFB_Users { get; set; }
+        public DbSet<SLFB_User_Email> SLFB_User_Emails { get; set; }
     }
 }
