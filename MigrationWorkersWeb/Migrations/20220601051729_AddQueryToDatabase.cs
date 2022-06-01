@@ -16,7 +16,10 @@ namespace MigrationWorkersWeb.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserID = table.Column<int>(type: "int", nullable: false),
-                    To = table.Column<int>(type: "int", nullable: true),
+                    To = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    AgencyID = table.Column<int>(type: "int", nullable: true),
+                    EmbassyID = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -24,10 +27,17 @@ namespace MigrationWorkersWeb.Migrations
                 {
                     table.PrimaryKey("PK_Queries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Queries_Embassies_To",
-                        column: x => x.To,
+                        name: "FK_Queries_Agencies_AgencyID",
+                        column: x => x.AgencyID,
+                        principalTable: "Agencies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Queries_Embassies_EmbassyID",
+                        column: x => x.EmbassyID,
                         principalTable: "Embassies",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Queries_Users_UserID",
                         column: x => x.UserID,
@@ -38,9 +48,14 @@ namespace MigrationWorkersWeb.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Queries_To",
+                name: "IX_Queries_AgencyID",
                 table: "Queries",
-                column: "To");
+                column: "AgencyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Queries_EmbassyID",
+                table: "Queries",
+                column: "EmbassyID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Queries_UserID",

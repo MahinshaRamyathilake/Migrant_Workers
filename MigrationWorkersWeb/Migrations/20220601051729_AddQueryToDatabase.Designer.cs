@@ -11,7 +11,7 @@ using MigrationWorkersWeb.Data;
 namespace MigrationWorkersWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220531165143_AddQueryToDatabase")]
+    [Migration("20220601051729_AddQueryToDatabase")]
     partial class AddQueryToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -280,12 +280,21 @@ namespace MigrationWorkersWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int?>("AgencyID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("To")
+                    b.Property<int?>("EmbassyID")
+                        .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("To")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("UserID")
                         .IsRequired()
@@ -293,7 +302,9 @@ namespace MigrationWorkersWeb.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("To");
+                    b.HasIndex("AgencyID");
+
+                    b.HasIndex("EmbassyID");
 
                     b.HasIndex("UserID");
 
@@ -480,15 +491,25 @@ namespace MigrationWorkersWeb.Migrations
 
             modelBuilder.Entity("MigrationWorkersWeb.Models.Query", b =>
                 {
+                    b.HasOne("MigrationWorkersWeb.Models.Agency", "Agency")
+                        .WithMany()
+                        .HasForeignKey("AgencyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MigrationWorkersWeb.Models.Embassy", "Embassy")
                         .WithMany()
-                        .HasForeignKey("To");
+                        .HasForeignKey("EmbassyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MigrationWorkersWeb.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Agency");
 
                     b.Navigation("Embassy");
 

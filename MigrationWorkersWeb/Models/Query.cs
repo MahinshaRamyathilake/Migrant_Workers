@@ -12,8 +12,14 @@ namespace MigrationWorkersWeb.Models
         [ForeignKey("UserID")]
         public virtual User User { get; set; }
 
-        public int? To { get; set; }
-        [ForeignKey("To")]
+        public string To { get; set; }
+
+        public int? AgencyID { get; set; }
+        [ForeignKey("AgencyID")]
+        public virtual Agency Agency { get; set; }
+
+        public int? EmbassyID { get; set; }
+        [ForeignKey("EmbassyID")]
         public virtual Embassy Embassy { get; set; }
 
         [Required]
