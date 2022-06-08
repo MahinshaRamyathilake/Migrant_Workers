@@ -30,9 +30,32 @@ namespace MigrationWorkersWeb.Controllers
 
             if (userExist)
             {
-                HttpContext.SignInAsync();
+                if (user.UserType == "DEV")
+                {
+                    return RedirectToAction("Index", "SLFBUser");
+                }
+                else if (user.UserType == "A_MGT")
+                {
+                    return RedirectToAction("Index", "AgencyAgent");
+                }
+                else if (user.UserType == "A_USER")
+                {
+                    return RedirectToAction("Index", "AgencyUser");
+                }
+                else if (user.UserType == "E_MGT")
+                {
+                    return RedirectToAction("Index", "EmbassyAgent");
+                }
+                else if (user.UserType == "E_USER")
+                {
+                    return RedirectToAction("Index", "EmbassyUser");
+                }
+                else if (user.UserType == "M_USER")
+                {
+                    return RedirectToAction("");
+                }
             }
-            return View();
+            return View(credentials);
         }
 
         public IActionResult SignUp()

@@ -1,5 +1,4 @@
 using MigrationWorkersWeb.Data;
-using MigrationWorkersWeb.CustomHandler;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
@@ -16,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
-builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", config =>
+/*builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", config =>
 {
     config.Cookie.Name = "UserLoginCookies";
     config.LoginPath = "/Accounts/Login";
@@ -34,7 +33,7 @@ builder.Services.AddAuthorization(config =>
 });
 
 builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
-builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();*/
 
 var app = builder.Build();
 
