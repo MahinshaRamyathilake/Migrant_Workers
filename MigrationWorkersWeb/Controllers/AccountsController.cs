@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection;
 using System.Web;
-using MigrationWorkersWeb.Models;
 using System.Linq;
+using MigrationWorkersWeb.Models;
 using MigrationWorkersWeb.Data;
-
+using Microsoft.AspNetCore.Authentication;
 
 namespace MigrationWorkersWeb.Controllers
 {
@@ -30,7 +30,7 @@ namespace MigrationWorkersWeb.Controllers
 
             if (userExist)
             {
-                
+                HttpContext.SignInAsync();
             }
             return View();
         }
